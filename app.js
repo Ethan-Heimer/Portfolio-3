@@ -1,6 +1,6 @@
 const portrateText = document.getElementById("portrate-text");
 
-const cards = document.getElementsByClassName("card-holder");
+const cards = document.getElementsByClassName("card");
 for(var i = 0; i< cards.length; i++){
     formatCard(cards[i]);
 }
@@ -8,20 +8,17 @@ for(var i = 0; i< cards.length; i++){
 
 function formatCard(cardHolder){
     cardHolder.addEventListener("mousemove", (e) => bendCard(e, cardHolder));
-    cardHolder.addEventListener("mouseleave", () => cardHolder.children[0].style.transform = "rotate(0)")
+    cardHolder.addEventListener("mouseleave", () => cardHolder.style.transform = "rotate(0)")
 }
 
 function bendCard(e, cardHolder){
     var rect = e.target.getBoundingClientRect();
-    var x = e.clientX - rect.left; //x position within the element.
-    var y = e.clientY - rect.top;  //y position within the element.
-   
-    let xVal = ((x - rect.left/4)/10);
-    let yVal = ((y - rect.top/4)/10);
+    var x = (e.clientX - rect.left*1.35); //x position within the element.
+    var y = (e.clientY - rect.top*2); //x position within the element.
 
-    cardHolder.children[0].style.transform = `rotate(${yVal}deg)`;
+    console.log(y);
 
-    console.log(yVal);
+    cardHolder.style.transform = `perspective(5000px) rotateY(${x/15}deg) rotateX(${-y/15}deg)`;
 }
 
 

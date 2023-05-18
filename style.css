@@ -245,7 +245,7 @@ body{
     position: relative;
     width: 25vmax;
     height: 25vmax;
-    background-color: red;
+    background-color: #27272727;
 }
 
 .card{
@@ -265,6 +265,10 @@ body{
     overflow: hidden;
 
     transition: .25s;
+
+    transform-style: preserve-3d;
+    transform: perspective(5000px);
+
 }
 
 .card, .card *{
@@ -283,9 +287,25 @@ body{
     left: -100%;
 
     font-size: 100vmin;
-    animation: card-sheen .75s ease-out forwards;
+    animation: card-sheen .5s ease-out forwards;
 
     color: rgba(255, 255, 255, 0.547);
+
+    transform: rotateX(0) rotateY(0);
+}
+
+.card:not(:hover)::after{
+
+    content: "/";
+
+    position: absolute;
+    top: -75%;
+    left: -100%;
+
+    font-size: 100vmin;
+
+    color: rgba(255, 255, 255, 0.547);
+    animation: card-sheen-out .5s ease-out forwards;
 }
 
 i{
@@ -384,6 +404,16 @@ i{
 
     100%{
         left: 0%;
+    }
+}
+
+@keyframes card-sheen-out{
+    0%{
+        left: 0%;
+    }
+
+    100%{
+        left: 100%;
     }
 }
 
