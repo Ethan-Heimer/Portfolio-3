@@ -1,0 +1,244 @@
+*{
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Staatliches', cursive;
+    color: var(--PrimaryFontColor);
+    box-sizing: border-box;
+
+    text-decoration: none;
+    text-align: center;
+}
+
+:root{
+    /*--BodyColor: linear-gradient(90deg, #272727, #000000);*/
+    --BodyColor: #272727;
+    --PrimaryColor: linear-gradient(135deg, var(--IconColorOne), var(--IconColorTwo));
+    --SecondaryColor: White;
+    --FooterColor: #47126B;
+
+    --PrimaryFontColor: rgb(255, 255, 255);
+    --SecondaryFontColor: Black;
+
+    --XLargeFont: 6vmin;
+    --LargeFont: 5vmin;
+    --MediumFont: 4vmin;
+    --SmallFont: 3vmin;
+
+    --FixedFont: 180px;
+
+    --IconSize: 20vmin;
+    --IconColorOne:  #EA698B;
+    --IconColorTwo: #973AA8;
+}
+
+body{
+    overflow-x: hidden;
+    background-color: var(--BodyColor);
+}
+
+footer{
+   background-color: var(--FooterColor);
+
+   width: 100vw;
+   text-align: center;
+   padding: 2vh;
+}
+
+a{
+    transition: .25s;
+}
+a:hover{
+    font-size: calc(var(--LargeFont) + .5vw);
+}
+
+.PrimaryColor{
+    background-image: var(--PrimaryColor);
+    color: var(--PrimaryFontColor);
+}
+
+.SecondaryColor{
+    background-color: var(--SecondaryColor);
+    color: var(--SecondaryFontColor);
+}
+
+.Loadin{
+    transform: translateY(var(--PosFrom));
+
+    animation: Load 1s ease forwards;
+    animation-delay: calc(var(--LOrder) * 500ms);
+}
+
+.Row{
+    display: flex;
+    justify-content: space-evenly;
+}
+.Colum{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.CenterRow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.XLargeFont{
+    font-size: var(--XLargeFont);
+}
+.LargeFont{
+    font-size: var(--LargeFont);
+}
+.MediumFont{
+    font-size: var(--MediumFontFont);
+}
+.SmallFont{
+    font-size: var(--SmallFont);
+}
+
+.FixedFont{
+    font-size: var(--FixedFont);
+}
+
+.Grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    gap:15vmin;
+    padding-block: 5vmin;
+}
+
+.LinkCard{
+    width: 50vmin;
+    height: 50vmin;
+
+    padding: 5vmin;
+    transition: .25s;
+    box-shadow: #27272776 5px 5px 5px;
+}
+
+.LinkCard:hover{
+    scale: 1.05;
+    box-shadow: #27272776 7px 7px 5px;
+}
+
+.TextGradient{
+    font-size: var(--IconSize);
+    background: linear-gradient(45deg, var(--IconColorOne), var(--IconColorTwo));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Static{
+    position: fixed;
+    z-index: -10;
+    width: 100vw;
+}
+
+.TextAlignLeft{
+    text-align: left;
+}
+
+#Nav{
+    width: 100vw;
+    height: 15vh;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#Nav > #navContent{
+    width: inherit;
+
+    padding-block: 1vh;
+    position: relative;
+    top: -100%;
+
+    transition: .5s;
+}
+
+#PortrateImage{
+    width: 40vmin;
+    height: 40vmin;
+
+    border-radius: 1000px;
+    padding: 2vmin;
+}
+
+#PortrateText{
+    white-space: nowrap;
+
+    animation: HiLight 4s steps(1);
+    animation-iteration-count: infinite;
+
+    position: absolute;
+}
+
+#PortrateText::after{
+    content: " |";
+
+    animation: flash .5s steps(1);
+    animation-iteration-count: infinite;
+}
+
+#Content{
+    width: 100vw;
+}
+
+#Links{
+    padding-block: 2vh;
+}
+
+@keyframes Load {
+    0%{
+        transform: translateY(var(--PosFrom));
+    }
+    100%{
+        transform: translateY(var(--PosTo));
+    }
+}
+
+@keyframes flash{
+    0%{
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes HiLight {
+    0%{
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    75%{
+        background-color: rgb(0, 136, 255);
+    }
+
+    100%{
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+}
+
+@media only screen and (max-width: 1300px){
+    .Grid{
+        grid-template-columns: auto auto;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    .Grid{
+        grid-template-columns: auto;
+    }
+}

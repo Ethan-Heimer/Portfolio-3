@@ -1,0 +1,389 @@
+:root{
+    --greeting-background: black;
+
+    --page-color-one: #80ED99;
+    --page-color-two: #26FFE6;
+
+    --card-color: rgb(247, 247, 247);
+
+    --font-gradient-color-one: #80ED99;
+    --font-gradent-color-two: #26FFE6;
+    
+
+    --gradient-one: linear-gradient(135deg, var(--font-gradient-color-one), var(--font-gradent-color-two));
+
+    --font-color-two: #ff9ab3;
+    --font-color-three: white;
+
+    --sheen: rgb(255, 255, 255);
+
+    --default-font-color: #7A8A90;
+}
+
+body{
+    background-color: rgb(46, 46, 46);
+    font-family: 'Oswald', sans-serif;
+
+    width: 100vw;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+   
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    color: var(--default-font-color);
+}
+
+#greeting{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--greeting-background);
+    
+    gap: 1vmin;
+}
+
+#greeting > .row-center{
+    gap: 1.5vmin;
+}
+
+#greeting *{
+    position: relative;
+    z-index: 10;
+}
+
+#name{
+    transform: translateX(var(--from));
+    z-index: 0;
+}
+
+.hide-before-anim{
+    transform: translateY(-1000px);
+}
+
+.row{
+    display: flex;
+}
+
+.row-center{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.row-absolute-center{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-space-around{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    width: inherit;
+}
+
+.gap-small{
+    gap: 1vmin;
+}
+
+.gap-large{
+    gap: 6vmin;
+}
+
+.center{
+    display: grid;
+    place-items: center;
+}
+
+.absolute{
+    position: absolute;
+    top: 0;
+}
+
+.font-style-mono{
+    font-family: 'Roboto Mono', monospace;
+}
+
+.font-color-one{
+    color: var(--page-color-one);
+}
+
+.glow-color-one{
+    box-shadow: var(--page-color-one) 0 0 15px;
+}
+
+.font-glow-one{
+    text-shadow: var(--page-color-one) 0 0 15px;
+}
+
+.font-color-two{
+
+    color: var(--font-color-two);
+}
+
+.font-glow-two{
+    text-shadow: var(--font-color-two) 0 0 15px;
+}
+
+.font-color-three{
+    color: var(--font-color-three);
+}
+
+.font-glow-three{
+    text-shadow: var(--font-color-three) 0 0 15px;
+}
+
+.font-gradient-one{
+    background: linear-gradient(var(--font-gradient-color-one), var(--font-gradent-color-two));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.font-xlarge{
+    font-size: 15vmin;
+}
+
+.font-large{
+    font-size: 10vmin;
+}
+
+.font-medium{
+    font-size: 7vmin;
+}
+
+.background-gradient{
+    background-image: var(--gradient-one);
+}
+
+.text-center{
+    text-align: center;
+}
+
+.toster{
+    animation: toster .5s ease forwards, sheen .5s ease forwards;
+    animation-delay: calc(var(--Order) * 50ms + 100ms);
+}
+
+.slideOver
+{
+    animation: slideOver 1s ease forwards;
+    animation-delay: calc(var(--Order) * 50ms + 100ms)
+}
+
+.slamDown
+{
+    animation: slamDown .1s forwards,sheen .5s ease;
+    animation-delay: calc(var(--Order) * 50ms + 100ms)
+}
+
+.slide
+{
+    animation: slide .5s forwards;
+    animation-delay: calc(var(--Order) * 50ms + 100ms)
+}
+.width-100{
+    width: 100vw;
+}
+
+.height-100{
+    min-height: 100vh;
+}
+
+.height-90{
+    min-height: 90vh;
+}
+
+.height-80{
+    min-height: 80vh;
+}
+
+.img-square{
+    width: var(--size);
+    height: var(--size);
+}
+
+.gradient-one{
+    background-image: var(--gradient-one);
+}
+
+#portrate-text{
+    white-space: nowrap;
+    position: absolute;
+    z-index: -10;
+}
+
+#portrate-text::after{
+    content: "|";
+
+    animation: flash .5s steps(1);
+    animation-iteration-count: infinite;
+
+    z-index: -10;
+}
+
+#portrate-image{
+    padding: 1.5vmin;
+    border-radius: 50vmin;
+}
+
+#portrate-info{
+    transform: translateY(-50%);
+    z-index: -10;
+}
+
+.card-holder{
+    position: relative;
+    width: 25vmax;
+    height: 25vmax;
+    background-color: red;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 25vmax;
+    height: 25vmax;
+
+    background-color: var(--card-color);
+
+    font-size: 2vmax;
+    word-wrap: none;
+
+    position: absolute;
+    overflow: hidden;
+
+    transition: .25s;
+}
+
+.card, .card *{
+    padding: 5vmin;
+}
+
+.card:hover{
+    scale: 1.05;
+}
+
+.card:hover::after{
+    content: "/";
+
+    position: absolute;
+    top: -75%;
+    left: -100%;
+
+    font-size: 100vmin;
+    animation: card-sheen .75s ease-out forwards;
+
+    color: rgba(255, 255, 255, 0.547);
+}
+
+i{
+    font-size: 12vmax;
+
+    background: linear-gradient(var(--font-gradient-color-one), var(--font-gradent-color-two));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes toster{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-50px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+@keyframes slideOver{
+    0%{
+        transform: translateX(var(--from));
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(var(--to));
+        opacity: 1;
+    }
+}
+
+@keyframes slamDown{
+    0%{
+        transform: translateY(var(--from));
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(var(--to));
+        opacity: 1;
+    }
+}
+
+@keyframes sheen {
+    50%{
+        color: var(--sheen);
+    }
+}
+
+@keyframes slide {
+    0%{
+        transform: translateY(var(--from));
+    }
+    100%{
+        transform: translateY(var(--to));
+    }
+}
+
+@keyframes flash{
+    0%{
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes highLight {
+    0%{
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    75%{
+        background-color: rgb(108, 108, 108);
+    }
+
+    100%{
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+}
+
+@keyframes card-sheen{
+    0%{
+        left: -100%;
+    }
+
+    100%{
+        left: 0%;
+    }
+}
+
