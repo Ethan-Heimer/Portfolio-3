@@ -1,30 +1,10 @@
 const portrateText = document.getElementById("portrate-text");
 
-const cards = document.getElementsByClassName("card");
-for(var i = 0; i< cards.length; i++){
-    formatCard(cards[i]);
-}
-
-
-function formatCard(cardHolder){
-    cardHolder.addEventListener("mousemove", (e) => bendCard(e, cardHolder));
-    cardHolder.addEventListener("mouseleave", () => cardHolder.style.transform = "rotate(0)")
-}
-
-function bendCard(e, cardHolder){
-    var rect = e.target.getBoundingClientRect();
-    var x = (e.clientX - rect.left*1.35); //x position within the element.
-    var y = (e.clientY - rect.top*2); //x position within the element.
-
-    console.log(y);
-
-    cardHolder.style.transform = `perspective(5000px) rotateY(${x/15}deg) rotateX(${-y/15}deg)`;
-}
-
-
 const text = ["Web Designer", "Game Developer", "Artist"];
 
 var SelectedText = 0; 
+
+window.scrollTo({ top: 0, behavior: 'smooth'});
 
 async function IncrementText(){
     SelectedText++;
@@ -48,8 +28,7 @@ async function IncrementText(){
 
     await sleep(1000);
 
-    portrateText.style.backgroundColor = 'rgb(108, 108, 108)';
-
+    portrateText.style.backgroundColor = '#ffffff55';
     await sleep(1000);
 
     portrateText.style.backgroundColor = '#00000000';
@@ -57,7 +36,23 @@ async function IncrementText(){
 }
 
 setInterval(IncrementText, 4000);
+setInterval(dottedBgAnimation, 50);
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-  }
+}
+
+let x = 0;
+let y = 0;
+function dottedBgAnimation(){
+    document.documentElement.style.setProperty('--dotted-background-xoffset', `${++x}px`);
+    document.documentElement.style.setProperty('--dotted-background-yoffset', `${++y}px`);
+}
+
+async function pauseScroll(){
+    document.getElementsByTagName('body')[0].style.overflow= "hidden";
+    await sleep(3500);
+    document.getElementsByTagName('body')[0].style.overflowY= "scroll";
+}
+
+pauseScroll();

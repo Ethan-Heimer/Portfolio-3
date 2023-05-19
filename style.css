@@ -1,27 +1,36 @@
 :root{
     --greeting-background: black;
 
-    --page-color-one: #80ED99;
-    --page-color-two: #26FFE6;
+    --page-color-one: #ffdc5e;
+    --page-color-two: #ffa3a5;
+
+    --font-color-three: #7A8A90;
+
+    /*#80ED99*/
+    /*#26FFE6*/
 
     --card-color: rgb(247, 247, 247);
 
-    --font-gradient-color-one: #80ED99;
-    --font-gradent-color-two: #26FFE6;
+    --gradient-one: linear-gradient(135deg, var(--page-color-one), var(--page-color-two));
+    --gradient-one-reversed: linear-gradient(135deg, var(--page-color-two), var(--page-color-one));
+
+    --body-gradient: linear-gradient(180deg, #ffdc5e77, #ffa3a533);
     
-
-    --gradient-one: linear-gradient(135deg, var(--font-gradient-color-one), var(--font-gradent-color-two));
-
-    --font-color-two: #ff9ab3;
-    --font-color-three: white;
-
     --sheen: rgb(255, 255, 255);
 
-    --default-font-color: #7A8A90;
+    --default-font-color: white;
+
+    --dotted-background-xoffset: 0px;
+    --dotted-background-yoffset: 0px;
+
+    --dotted-background-dotsize: 2px;
 }
 
 body{
     background-color: rgb(46, 46, 46);
+    background-image: var(--body-gradient);
+    background-size: 100vw 100vh;
+
     font-family: 'Oswald', sans-serif;
 
     width: 100vw;
@@ -109,6 +118,10 @@ body{
     top: 0;
 }
 
+.fixed{
+    position: fixed;
+}
+
 .font-style-mono{
     font-family: 'Roboto Mono', monospace;
 }
@@ -121,20 +134,25 @@ body{
     box-shadow: var(--page-color-one) 0 0 15px;
 }
 
+.glow-color-two{
+    box-shadow: var(--page-color-two) 0 0 15px;
+}
+
 .font-glow-one{
     text-shadow: var(--page-color-one) 0 0 15px;
 }
 
 .font-color-two{
 
-    color: var(--font-color-two);
+    color: var(--page-color-two);
 }
 
 .font-glow-two{
-    text-shadow: var(--font-color-two) 0 0 15px;
+    text-shadow: var(--page-color-two) 0 0 15px;
 }
 
 .font-color-three{
+
     color: var(--font-color-three);
 }
 
@@ -143,7 +161,7 @@ body{
 }
 
 .font-gradient-one{
-    background: linear-gradient(var(--font-gradient-color-one), var(--font-gradent-color-two));
+    background: linear-gradient(var(--page-color-one), var(--page-color-two));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -163,6 +181,10 @@ body{
 
 .background-gradient{
     background-image: var(--gradient-one);
+}
+
+.background-gradient-reversed{
+    background-image: var(--gradient-one-reversed);
 }
 
 .text-center{
@@ -241,13 +263,6 @@ body{
     z-index: -10;
 }
 
-.card-holder{
-    position: relative;
-    width: 25vmax;
-    height: 25vmax;
-    background-color: #27272727;
-}
-
 .card{
     display: flex;
     flex-direction: column;
@@ -261,13 +276,15 @@ body{
     font-size: 2vmax;
     word-wrap: none;
 
-    position: absolute;
     overflow: hidden;
 
     transition: .25s;
 
     transform-style: preserve-3d;
     transform: perspective(5000px);
+
+    box-shadow: #27272727 5px 5px 15px;
+    color: var(--font-color-three);
 
 }
 
@@ -283,7 +300,7 @@ body{
     content: "/";
 
     position: absolute;
-    top: -75%;
+    top: -100%;
     left: -100%;
 
     font-size: 100vmin;
@@ -311,10 +328,21 @@ body{
 i{
     font-size: 12vmax;
 
-    background: linear-gradient(var(--font-gradient-color-one), var(--font-gradent-color-two));
+    background: var(--gradient-one);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.background-dotted{
+    width: 100%;
+    height: 100%;
+
+    background-image: radial-gradient(rgba(255, 255, 255, 0.47) var(--dotted-background-dotsize), transparent 0);
+    background-size: 40px 40px;
+    background-position: var(--dotted-background-xoffset) var(--dotted-background-yoffset);
+
+    transition: .01s;
 }
 
 @keyframes toster{
@@ -380,21 +408,6 @@ i{
     100%{
         opacity: 0;
     }
-}
-
-@keyframes highLight {
-    0%{
-        background-color: rgba(0, 0, 0, 0);
-    }
-
-    75%{
-        background-color: rgb(108, 108, 108);
-    }
-
-    100%{
-        background-color: rgba(0, 0, 0, 0);
-    }
-
 }
 
 @keyframes card-sheen{
