@@ -14,7 +14,7 @@
     --gradient-one: linear-gradient(135deg, var(--page-color-one), var(--page-color-two));
     --gradient-one-reversed: linear-gradient(135deg, var(--page-color-two), var(--page-color-one));
 
-    --body-gradient: linear-gradient(180deg,#ffa3a599, #ffa3a555, #ffbf8133, #ffbf8133,#ffd33455,#ffd33499);
+    --body-gradient: linear-gradient(180deg,#ffa3a599, #ffa3a555, #ffbf8133, #ffbf8133,#ffda5255,#ffd64299);
     
     --sheen: rgb(255, 255, 255);
 
