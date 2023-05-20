@@ -1,10 +1,23 @@
 const portrateText = document.getElementById("portrate-text");
+const contactButton = document.getElementById("contact-button");
+const contactModle = document.getElementById("contact-modle");
 
 const text = ["Web Designer", "Game Developer", "Artist"];
-
 var SelectedText = 0; 
 
+var isContactUp = false;
+
+contactButton.addEventListener("click", toggleContact);
+
 window.scrollTo({ top: 0, behavior: 'smooth'});
+pauseScroll();
+
+function toggleContact(){
+    console.log("run");
+    isContactUp = !isContactUp;
+    contactModle.style.opacity = isContactUp ? 1 : 0;
+    contactModle.style.pointerEvents = isContactUp ? 'auto' : 'none';
+}
 
 async function IncrementText(){
     SelectedText++;
@@ -55,4 +68,3 @@ async function pauseScroll(){
     document.getElementsByTagName('body')[0].style.overflowY= "scroll";
 }
 
-pauseScroll();

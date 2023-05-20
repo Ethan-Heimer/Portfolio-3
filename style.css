@@ -1,5 +1,5 @@
 :root{
-    --greeting-background: black;
+    --background-ui: black;
 
     --page-color-one: #ffdc5e;
     --page-color-two: #ffa3a5;
@@ -14,7 +14,7 @@
     --gradient-one: linear-gradient(135deg, var(--page-color-one), var(--page-color-two));
     --gradient-one-reversed: linear-gradient(135deg, var(--page-color-two), var(--page-color-one));
 
-    --body-gradient: linear-gradient(180deg, #ffdc5e77, #ffa3a533);
+    --body-gradient: linear-gradient(180deg,#ffa3a599, #ffa3a555, #ffbf8133, #ffbf8133,#ffd33455,#ffd33499);
     
     --sheen: rgb(255, 255, 255);
 
@@ -27,11 +27,7 @@
 }
 
 body{
-    background-color: rgb(46, 46, 46);
-    background-image: var(--body-gradient);
-    background-size: 100vw 100vh;
-
-    font-family: 'Oswald', sans-serif;
+    
 
     width: 100vw;
     min-height: 100vh;
@@ -41,18 +37,51 @@ body{
    
 
 *{
+    font-family: 'Oswald', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 
     color: var(--default-font-color);
+
+    text-decoration: none;
+}
+
+input{
+    border: var(--page-color-one) solid 2px;
+    background-color: var(--background-ui);
+    box-shadow: var(--page-color-two) 0px 0px 10px;
+    border-radius: 1vmin;
+    width: 30vw;
+    height: 5vh;
+    margin: 1vmin;
+    padding: 1vmin;
+}
+
+button{
+    margin: 1vmin;
+    padding: 1vmin;
+
+    border: var(--page-color-one) solid 2px;
+    border-radius: 1vmin;
+
+    background-color: var(--page-color-one);
+
+    width: 10%;
+
+    box-shadow: var(--page-color-two) 0px 0px 10px;
+    transition: .25s;
+}
+
+button:hover{
+    scale: 1.05;
 }
 
 #greeting{
     width: 100vw;
     height: 100vh;
 
-    background-color: var(--greeting-background);
+    background-color: var(--background-ui);
     
     gap: 1vmin;
 }
@@ -100,6 +129,12 @@ body{
     width: inherit;
 }
 
+.column{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end
+}
+
 .gap-small{
     gap: 1vmin;
 }
@@ -119,7 +154,14 @@ body{
 }
 
 .fixed{
+    top: 0;
     position: fixed;
+}
+
+.fixed-center{
+    position: fixed;
+    top: 20%;
+    left: 20%;
 }
 
 .font-style-mono{
@@ -179,6 +221,18 @@ body{
     font-size: 7vmin;
 }
 
+.background-color-main{
+    background: var(--background-ui);
+}
+
+.background-color-one{
+    background-color: var(--page-color-one);
+}
+
+.background-color-two{
+    background-color: var(--page-color-two);
+}
+
 .background-gradient{
     background-image: var(--gradient-one);
 }
@@ -217,6 +271,26 @@ body{
     width: 100vw;
 }
 
+.width-90{
+    width: 90vw;
+}
+
+.width-80{
+    width: 80vw;
+}
+
+.width-70{
+    width: 70vw;
+}
+
+.width-60{
+    width: 60vw;
+}
+
+.width-50{
+    width: 60vw;
+}
+
 .height-100{
     min-height: 100vh;
 }
@@ -229,6 +303,18 @@ body{
     min-height: 80vh;
 }
 
+.height-70{
+    min-height: 70vh;
+}
+
+.height-60{
+    min-height: 60vh;
+}
+
+.height-50{
+    min-height: 60vh;
+}
+
 .img-square{
     width: var(--size);
     height: var(--size);
@@ -236,6 +322,13 @@ body{
 
 .gradient-one{
     background-image: var(--gradient-one);
+}
+
+.body-gradient{
+    background-color: rgb(46, 46, 46);
+    background-image: var(--body-gradient);
+    background-size: 100vw 100vh;
+    z-index: -10;
 }
 
 #portrate-text{
