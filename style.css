@@ -438,6 +438,20 @@ i{
     transition: .01s;
 }
 
+.heading{
+    font-size: 5vmax;
+    text-align: center;
+    position: relative;
+    margin: 3vmax;
+}
+.heading::before{
+    content: "―――――";
+}
+
+.heading::after{
+    content: "―――――";
+}
+
 @keyframes toster{
     0%{
         transform: translateY(0px);
